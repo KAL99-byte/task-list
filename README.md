@@ -1,27 +1,77 @@
-# TaskList
+# Project Setup and Instructions
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+## Overview
 
-## Development server
+This project includes a mockup server (`db.js`) and an Angular application. Below are the steps to set up and run both the server and the Angular application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prerequisites
 
-## Code scaffolding
+Before you begin, ensure you have the following installed on your machine:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Node.js](https://nodejs.org/) (version 12.x or higher)
+- [npm](https://npmjs.com/) (Node Package Manager)
+- [Angular CLI](https://angular.io/cli) (if not installed, run `npm install -g @angular/cli`)
 
-## Build
+## Setting Up the Mockup Server
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Install dependencies** for the mockup server:
 
-## Running unit tests
+   - Navigate to the folder where `db.js` is located and open a terminal window.
+   - Run the following command to install the necessary dependencies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+     ```bash
+     npm install
+     ```
 
-## Running end-to-end tests
+2. **Run the mockup server**:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   - After installing the dependencies, start the mockup server using the following command:
 
-## Further help
+     ```bash
+     npm run server
+     ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   This will start the mockup server, and you should see output indicating that it's running, typically on `http://localhost:5000` 
+
+## Running the Angular App
+
+1. **Install Angular app dependencies**:
+
+   - If you haven't already, navigate to the root of your Angular application folder and install its dependencies by running:
+
+     ```bash
+     npm install
+     ```
+
+2. **Start the Angular application**:
+
+   - After the dependencies are installed, you can start the Angular application by running one of the following commands:
+
+     - **Using Angular CLI**:
+
+       ```bash
+       ng serve
+       ```
+
+     - **Using npm** (if you prefer the npm script):
+
+       ```bash
+       npm start
+       ```
+
+   This will start the Angular development server and you can access the application in your browser at `http://localhost:4200`.
+
+## Troubleshooting
+
+- If you encounter errors related to missing packages or dependencies, try running `npm install` again in both the server and Angular app directories.
+- Ensure that the mockup server is running before starting the Angular app, especially if your Angular app relies on data from the mockup server.
+
+## Contributing
+
+Feel free to contribute by forking the repo, making changes, and submitting pull requests.
+
+---
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).

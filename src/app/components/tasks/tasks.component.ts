@@ -1,35 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 // import {TASKS} from '../../mock-task';
-import {Task} from '../../Task';
+import { Task } from '../../Task';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrl: './tasks.component.css'
+  styleUrl: './tasks.component.css',
 })
 export class TasksComponent implements OnInit {
+  tasks: Task[] = [];
 
-  tasks:Task[] = [];
-
-  constructor(private taskservice:TaskService){}
+  constructor(private taskservice: TaskService) {}
 
   ngOnInit(): void {
-      this.taskservice.getTasks().subscribe((tasks=>(
-      this.tasks = tasks)));
-
+    this.taskservice.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
-  deleteTask(task:Task){
-    this.taskservice.deleteTask(task).subscribe(()=>
-
-      (this.tasks = this.tasks.filter(t => t.id !== task.id))
-
-  );
+  deleteTask(task: Task) {
+    this.taskservice
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+      );
   }
 
-  toggleReminder(task:Task){
+  toggleReminder(task: Task) {
     task.reminder = !task.reminder;
     this.taskservice.updateTaskReminder(task).subscribe();
   }
 
+  addTask(task: Task) {
+    this.taskservice.addTask(task).subscribe((task)=>(this.tasks.push(task)))
+  }
 }
